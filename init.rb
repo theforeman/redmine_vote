@@ -1,7 +1,7 @@
 require 'redmine'
-require 'issue_vote_patch'
-require 'query_vote_patch'
-require_dependency 'issues_vote_hook'
+require_relative 'lib/issue_vote_patch'
+require_relative 'lib/query_vote_patch'
+require_relative 'lib/issues_vote_hook'
 
 Redmine::Plugin.register :redmine_vote do
   name 'Redmine Vote plugin'
