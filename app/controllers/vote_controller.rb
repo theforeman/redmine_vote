@@ -2,7 +2,7 @@ require 'redmine'
 
 class VoteController < IssuesController
 
-  skip_before_filter :authorize, :only => [:up,:down]
+  skip_before_action :authorize, :only => [:up,:down]
 
   def up
     vote(:up)

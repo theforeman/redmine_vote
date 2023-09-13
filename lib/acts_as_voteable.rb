@@ -1,8 +1,5 @@
 # ActsAsVoteable
-module Juixe
-  module Acts #:nodoc:
-    module Voteable #:nodoc:
-
+module ActsAsVoteable
       def self.included(base)
         base.extend ClassMethods
       end
@@ -10,8 +7,8 @@ module Juixe
       module ClassMethods
         def acts_as_voteable
           has_many :votes, :as => :voteable, :dependent => :delete_all
-          include Juixe::Acts::Voteable::InstanceMethods
-          extend Juixe::Acts::Voteable::SingletonMethods
+          include ActsAsVoteable::InstanceMethods
+          extend ActsAsVoteable::SingletonMethods
         end
       end
       
@@ -62,9 +59,7 @@ module Juixe
           end
           rtn
         end
-      end
-    end
   end
 end
 
-ActiveRecord::Base.send :include,  Juixe::Acts::Voteable #:nodoc:
+ActiveRecord::Base.send :include,  ActsAsVoteable #:nodoc:

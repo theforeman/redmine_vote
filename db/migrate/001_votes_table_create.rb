@@ -1,4 +1,4 @@
-class VotesTableCreate < ActiveRecord::Migration
+class VotesTableCreate < ActiveRecord::Migration[4.2]
   def self.up
     create_table :votes, :force => true do |t|
       t.column :vote, :boolean, :default => false
